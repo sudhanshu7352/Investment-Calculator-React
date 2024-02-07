@@ -19,11 +19,13 @@ function handleChange(inputIdentifier, newValue) {
         }
     })
 }
+const isValidData = userInput.duration >=1;
   return (
     <>
     <Header />
     <UserInput onChange={handleChange} userInput={userInput} />
-    <Results input={userInput} />
+    {!isValidData && (<p className="center">Please enter duration greater than 0.</p>)}
+    {isValidData && <Results input={userInput} />}
     </>
   )
 }
